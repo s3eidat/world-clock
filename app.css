@@ -1,0 +1,39 @@
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.date { width: auto; min-height: 30px; padding: 4px 10px; }
+.ticks { display: flex; justify-content: space-between; margin-top: 2px; }
+#slider { margin-top: 8px; }
+
+.clocks { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.clock { position: relative; padding: 16px 16px 14px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); overflow: hidden; }
+.clock::before { content: ""; position: absolute; inset: 0; background: linear-gradient(140deg, var(--sky, transparent), transparent 65%); opacity: .55; pointer-events: none; }
+.clock.day { --sky: rgba(245, 194, 107, .22); }
+.clock.night { --sky: rgba(110, 120, 255, .2); }
+.clock.home { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.clock > * { position: relative; }
+.clock .c-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.clock .c-name { font-weight: 650; font-size: 15px; overflow-wrap: anywhere; }
+.clock .c-region { color: var(--text-3); font-size: 12px; }
+.clock .c-time { font-size: 38px; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1.1; margin: 10px 0 2px; }
+.clock .c-time small { font-size: 15px; color: var(--text-3); font-weight: 600; margin-left: 4px; }
+.clock .c-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: var(--text-2); font-size: 12.5px; }
+.clock .c-icon { font-size: 20px; line-height: 1; }
+.clock .c-x { color: var(--text-3); margin: -6px -6px 0 0; }
+.clock .c-x:hover { color: var(--danger); }
+
+.legend { gap: 6px 10px; }
+.lg { display: inline-block; width: 12px; height: 12px; border-radius: 4px; vertical-align: -1px; }
+.lg.work, .planner td.work { background: color-mix(in srgb, var(--ok) 28%, transparent); }
+.lg.awake, .planner td.awake { background: color-mix(in srgb, var(--warn) 24%, transparent); }
+.lg.night, .planner td.night { background: transparent; }
+.lg.night { border: 1px solid var(--line-strong); }
+.planner { font-size: 12.5px; }
+.planner th, .planner td { padding: 6px 4px; text-align: center; border-bottom: 1px solid var(--line); min-width: 34px; }
+.planner th.zone, .planner td.zone { text-align: left; white-space: nowrap; position: sticky; left: 0; background: var(--surface); z-index: 1; padding-left: 10px; min-width: 120px; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--text); }
+.planner td { cursor: pointer; font-variant-numeric: tabular-nums; }
+.planner td.night { color: var(--text-3); }
+.planner .ov { box-shadow: inset 0 2px 0 var(--ok), inset 0 -2px 0 var(--ok); }
+.planner .sel { outline: 2px solid var(--accent); outline-offset: -2px; }
+.planner td.day1 { font-size: 10px; color: var(--text-3); }
+.tt { font-weight: 650; font-size: 14px; }
+.clock .c-right { gap: 4px; flex-wrap: nowrap; }
+#addForm > .grow { min-width: 220px; }
